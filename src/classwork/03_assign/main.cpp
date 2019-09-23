@@ -1,9 +1,9 @@
 //write includes statements
-#include "loops.h"
 #include <iostream>
-
+#include "loops.h"
 //write using statements for cin and cout
-
+using std::cout;
+using std::cin;
 
 /*
 Use a do while loop to prompt the user for 
@@ -12,19 +12,19 @@ factorial.  Also, loop continues as long as user wants to.
 */
 int main() 
 {
+	int number;
 	auto user_choice = 'y';
-	int num = 0;
-	int result = 0;
-	
 	do
 	{
-		cout << "Enter number: ";
-		cin >> num;
-		result = factorial(num);
-		cout << "Factorial: "<<result;
+		cout << "Enter a number: ";
+		cin >> number;
+		cout << "Factorial of " << number << " is " << factorial(number) << "\n";
 
-		cout << "Continue...y or n: "
+
+
+		cout << "Continue y or n";
 		cin >> user_choice;
+
 
 	} while (user_choice == 'y' || user_choice == 'Y');
 

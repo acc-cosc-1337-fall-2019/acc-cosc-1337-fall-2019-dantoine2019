@@ -13,16 +13,17 @@ returns 120
 DON'T FORGET TO WRITE TEST CASE.  See file loop_test.cpp
 */
 
-
 int factorial(int num)
 {
-	int fac = 1;
-
-	while (num >= 1)
+	int i = num;
+	int total = i;
+	while (i > 1)
 	{
-		fac = fac * num;
-		--num;
-	}
-	return fac;
 
+		total = total * (i - 1);
+
+		i--;
+
+	}
+	return total;
 }

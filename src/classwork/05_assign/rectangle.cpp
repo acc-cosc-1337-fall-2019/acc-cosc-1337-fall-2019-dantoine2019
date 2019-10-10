@@ -15,3 +15,12 @@ int Rectanglee::get_area() const
 {
 	return area;
 }
+
+std::ostream & operator<<(std::ostream & out, const Rectanglee & b)
+{
+	out << "Area: " << b.area << "\n";
+
+	return out;
+}
+
+

@@ -1,10 +1,14 @@
 #include <iostream>
 #include <vector>
 #include "atm.h"
-using std::cout; using std::vector;
+#include "bank_account.h"
+using std::cout; using std::vector; using std::cin;
 
 int main()
 {
+	BankAccount a;
+	BankAccount b = a;
+	display(a);//class friend function
 	//scan card enter pin
 	//get customer record from database into a vector
 	vector<BankAccount> accounts{ BankAccount(500), BankAccount(600),
@@ -14,7 +18,8 @@ int main()
 	atm.deposit(100);
 	atm.withdraw(50);
 	atm.display_balance();
-	//cout<<atm;
+	cin >> a;
+	cout << a;// overload operator 
 
 	return 0;
 }

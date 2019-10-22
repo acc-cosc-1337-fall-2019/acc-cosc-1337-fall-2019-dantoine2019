@@ -1,6 +1,6 @@
 //cpp
 #include "tic_tac_toe.h"
-#include <iostream>
+
 
 using std::cout;
 
@@ -81,15 +81,18 @@ bool TicTacToe::check_board_full()
 	return true;
 	
 }
+
 bool TicTacToe::game_over()
 {
-	if (check_column_win() || check_row_win() || check_diagonal_win() || check_board_full())
+	if (check_column_win() || check_row_win() || check_diagonal_win())
 	{
+		set_winner();
 		return true;
 	}
-	else
+	else if (check_board_full())
 	{
-		return false;
+		winner = "C";
+		return true;
 	}
 }
 void TicTacToe::start_game(string player)
@@ -100,11 +103,18 @@ void TicTacToe::start_game(string player)
 void TicTacToe::mark_board(int position)
 {
 	pegs[position -1] = next_player;
+	if (game_over() == false)
+
 	set_next_player();
 }
 string TicTacToe::get_player()const
 {
 	return next_player;
+}
+
+string TicTacToe::get_winner() const
+{
+	return winner;
 }
 
 std::ostream & operator<<(std::ostream & out, const TicTacToe & board)
@@ -130,4 +140,17 @@ std::istream & operator>>(std::istream & in, TicTacToe & board)
 	in >> position;
 	board.mark_board(position);
 	return in;
+}
+
+void TicTacToe::set_winner()
+{
+	if(check_board_full())
+	if (next_player == "X")
+	{
+		winner = "0";
+	}
+	else
+	{
+		winner = "X";
+	}
 }

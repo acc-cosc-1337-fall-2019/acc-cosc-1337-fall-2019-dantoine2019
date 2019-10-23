@@ -1,3 +1,4 @@
+
 #define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
 #include "catch.hpp"
 #include "tic_tac_toe.h"
@@ -128,7 +129,7 @@ TEST_CASE("Test win by third row")
 TEST_CASE("Test win by diagonal top left")
 {
 	TicTacToe board;
-	board.start_game("X");
+	board.start_game("O");
 	REQUIRE(board.game_over() == false);
 	board.mark_board(1);//X         
 	REQUIRE(board.game_over() == false);
@@ -141,6 +142,7 @@ TEST_CASE("Test win by diagonal top left")
 	board.mark_board(9);//X 
 	//X wins 
 	REQUIRE(board.game_over() == true);
+	REQUIRE(board.get_winner() == "O");
 }
 TEST_CASE("Test win by diagonal bottom left")
 {
@@ -158,31 +160,25 @@ TEST_CASE("Test win by diagonal bottom left")
 	board.mark_board(3);//X 
 	//X wins 
 	REQUIRE(board.game_over() == true);
+	REQUIRE(board.get_winner() == "X");
 }
 TEST_CASE("Test for no winner")
 {
 	TicTacToe board;
 	board.start_game("X");
-	REQUIRE(board.game_over() == false);
 	board.mark_board(1);//X         
-	REQUIRE(board.game_over() == false);
 	board.mark_board(2);//O          
-	REQUIRE(board.game_over() == false);
 	board.mark_board(3);//X          
-	REQUIRE(board.game_over() == false);
 	board.mark_board(5);//O          
-	REQUIRE(board.game_over() == false);
 	board.mark_board(4);//X 
-	REQUIRE(board.game_over() == false);
 	board.mark_board(7);//O    
-	REQUIRE(board.game_over() == false);
 	board.mark_board(9);//X 
-	REQUIRE(board.game_over() == false);
 	board.mark_board(6);//O    
-	REQUIRE(board.game_over() == false);
 	board.mark_board(8);//X 
 
 
 	//no one wins 
 	REQUIRE(board.game_over() == true);
+
+	REQUIRE(board.get_winner() == "C");
 }

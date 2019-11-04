@@ -3,7 +3,6 @@
 #include <iostream>
 #include "tic_tac_toe_3.h"
 #include "tic_tac_toe_4.h"
-
 using std::cout; using std::cin;
 
 int main()
@@ -12,13 +11,13 @@ int main()
 	int position;
 	TicTacToeManager manager;
 	int game_type;
-	
+
 	auto user_choice = 'y';
-	do 
-	{
-		cout << "play win by 3 or 4: ";
+	do {
+		cout << "Play win by 3 or 4: ";
 		cin >> game_type;
 		TicTacToe* board;
+
 		if (game_type == 3)
 		{
 			board = new TicTacToe3();
@@ -28,17 +27,19 @@ int main()
 			board = new TicTacToe4();
 		}
 
-		
 		cout << "Choose X or O for player one: \n";
 		cin >> player;
+
+
 		board->start_game(player);
-		while (board->game_over() == false);
+		while (board->game_over() == false)
 		{
+
 			cin >> *board;
 			cout << *board;
 			if (board->game_over() == true)
 			{
-				cout << "Winner!\n";
+				cout << "Game over\n";
 				break;
 			}
 

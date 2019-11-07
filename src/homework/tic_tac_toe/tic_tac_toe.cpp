@@ -148,3 +148,8 @@ void TicTacToe::set_winner()
 		winner = "X";
 	}
 }
+
+const std::vector<std::string>& TicTacToe::get_pegs()
+{
+	return pegs;
+}

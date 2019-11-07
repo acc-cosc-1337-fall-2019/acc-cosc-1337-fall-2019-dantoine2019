@@ -44,7 +44,7 @@ int main()
 			}
 
 		}
-		manager->save_game(*board);
+		manager->save_game(board);
 
 		cout << "Would you like to play again? Y or N: \n";
 		cin >> user_choice;

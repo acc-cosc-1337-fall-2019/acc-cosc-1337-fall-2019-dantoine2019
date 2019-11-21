@@ -10,7 +10,7 @@ public:
 	size_t Size()const { return size; }
 	int& operator[](int i) { return nums[i]; }
 	int& operator[](int i) const { return nums[i]; }
-	Vector();
+	~Vector();
 private:
 	size_t size;
 	int* nums;

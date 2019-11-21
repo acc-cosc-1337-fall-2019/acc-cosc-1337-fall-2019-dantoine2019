@@ -49,3 +49,8 @@ Vector& Vector::operator=(Vector&& v)//move assignment
 
 	return *this;
 }
+
+Vector::~Vector()
+{
+	delete[] nums;
+}
